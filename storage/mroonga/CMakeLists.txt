@@ -17,6 +17,8 @@
 # License along with this library; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
+return() # see MDEV-7246
+
 cmake_minimum_required(VERSION 2.6)
 project(mroonga)
 
@@ -323,7 +325,7 @@ set(MRN_ALL_SOURCES
 if(MRN_BUNDLED)
   mysql_add_plugin(mroonga
     ${MRN_ALL_SOURCES}
-    STORAGE_ENGINE MODULE_ONLY DISABLED # see MDEV-7246
+    STORAGE_ENGINE MODULE_ONLY
     RECOMPILE_FOR_EMBEDDED
     LINK_LIBRARIES ${MRN_LIBRARIES})
 else()
